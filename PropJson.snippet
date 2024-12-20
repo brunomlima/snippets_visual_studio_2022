@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Propriedade JSON</Title>
+      <Shortcut>PropJson</Shortcut>
+      <Description>Snippet para criar uma propriedade para serialização JSON em C#</Description>
+      <Author>Bruno Lima</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>tipo</ID>
+          <ToolTip>O tipo da propriedade</ToolTip>
+          <Default>string</Default>
+        </Literal>
+        <Literal>
+          <ID>nome</ID>
+          <ToolTip>O nome da propriedade</ToolTip>
+          <Default>NomePropriedade</Default>
+        </Literal>
+        <Literal>
+          <ID>nomeJson</ID>
+          <ToolTip>O nome da propriedade no JSON</ToolTip>
+          <Default>nome_propriedade</Default>
+        </Literal>
+      </Declarations>
+
+      <Code Language="csharp">
+        <![CDATA[
+[JsonProperty("$nomeJson$")]
+public $tipo$ $nome$ { get; set; }
+]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
+
+

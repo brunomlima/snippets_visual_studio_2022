@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Save JSON to File</Title>
+      <Shortcut>SalvarJson</Shortcut>
+      <Description>Salva um arquivo JSON no diretório C:/temp.</Description>
+      <Author>Bruno Lima</Author>
+    </Header>
+    <Snippet>
+      <Code Language="csharp">
+        <![CDATA[
+            public static void SaveJsonToFile(string jsonContent, string fileName)
+            {
+                // Define o caminho base
+                string directoryPath = @"C:\temp";
+
+                try
+                {
+                    // Verifica se o diretório existe; caso contrário, cria o diretório
+                    if (!Directory.Exists(directoryPath))
+                    {
+                        Directory.CreateDirectory(directoryPath);
+                    }
+
+                    // Define o caminho completo do arquivo
+                    string filePath = Path.Combine(directoryPath, fileName);
+
+                    // Salva o conteúdo JSON no arquivo
+                    File.WriteAllText(filePath, jsonContent);
+
+                    Console.WriteLine("Arquivo JSON salvo com sucesso em " + filePath);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Erro ao salvar o arquivo JSON: " + ex.Message);
+                }
+            }        
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
+
