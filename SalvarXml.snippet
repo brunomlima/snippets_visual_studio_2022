@@ -9,34 +9,32 @@
     </Header>
     <Snippet>
       <Code Language="csharp">
-        <![CDATA[
-            public static void SaveXmlToFile(XDocument xmlDocument, string fileName)
+        <![CDATA[public static void SaveXmlToFile(System.Xml.Linq.XDocument xmlDocument, string fileName)
+        {
+            // Define o caminho base
+            string directoryPath = @"C:\temp";
+
+            try
             {
-                // Define o caminho base
-                string directoryPath = @"C:\temp";
-
-                try
+                // Verifica se o diretório existe; caso contrário, cria o diretório
+                if (!System.IO.Directory.Exists(directoryPath))
                 {
-                    // Verifica se o diretório existe; caso contrário, cria o diretório
-                    if (!Directory.Exists(directoryPath))
-                    {
-                        Directory.CreateDirectory(directoryPath);
-                    }
-
-                    // Define o caminho completo do arquivo
-                    string filePath = Path.Combine(directoryPath, fileName);
-
-                    // Salva o documento XML no arquivo
-                    xmlDocument.Save(filePath);
-
-                    Console.WriteLine("Arquivo XML salvo com sucesso em " + filePath);
+                    System.IO.Directory.CreateDirectory(directoryPath);
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Erro ao salvar o arquivo XML: " + ex.Message);
-                }
+
+                // Define o caminho completo do arquivo
+                string filePath = System.IO.Path.Combine(directoryPath, fileName);
+
+                // Salva o documento XML no arquivo
+                xmlDocument.Save(filePath);
+
+                Console.WriteLine("Arquivo XML salvo com sucesso em " + filePath);
             }
-        ]]>
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao salvar o arquivo XML: " + ex.Message);
+            }
+        }]]>
       </Code>
     </Snippet>
   </CodeSnippet>
